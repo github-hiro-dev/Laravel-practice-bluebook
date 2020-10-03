@@ -19,3 +19,5 @@ Route::get('/', function () {
 });
 
 Route::get('hello', [HelloController::class, 'index']);
+Route::get('hello/add', [HelloController::class, 'add']);
+Route::post('hello/add', [HelloController::class, 'create']);
