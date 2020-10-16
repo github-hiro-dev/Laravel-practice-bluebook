@@ -15,6 +15,11 @@
 @endsection
 
 @section('content')
+@if (Auth::check())
+    <p>USER: {{$user->name . ' (' . $user->email . ')'}}</p>
+@else
+    <p>*ログインしていません。(<a href="/login">ログイン</a>｜<a href="/register">登録</a>)</p>
+@endif
 <table>
     <tr>
         <th><a href="/hello?sort=name">name</a></th>
@@ -29,7 +34,7 @@
         </tr>
     @endforeach
 </table>
-{{$items->appends(['sort' => $sort])->links('vendor/pagination/bootstrap-4')}}
+{{$items->appends(['sort' => $sort])->links('vendor/pagination/simple-bootstrap-4')}}
 @endsection
 
 @section('footer')
